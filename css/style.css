@@ -1,0 +1,284 @@
+@charset "UTF-8";
+
+/*ページ全体に対する指定*/
+html {
+    font-size: 100%;
+    /*フォントサイズはブラウザ標準*/
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+body {
+    margin: 0;
+    /* footerの周りの隙間をなくす */
+}
+
+.fixed {
+    position: fixed;
+    /* ロゴを固定 */
+    top: 0;
+}
+
+img {
+    max-width: 100%;
+    /*画像の最大幅を100%に設定*/
+}
+
+a {
+    text-decoration: none;
+    /*リンクに装飾をつけない*/
+    color: black;
+    /*リンクの文字色を白に指定*/
+}
+
+
+.header {
+    width: 100%;
+    /* 画面のサイズに合わせる*/
+    margin: 0 auto;
+    padding: none;
+}
+
+.logo {
+    width: 110px;
+    margin-top: 4px;
+    margin-left: 4px;
+    object-fit: contain;
+    /* 全体が見えるように調節 */
+}
+
+
+.header_navi {
+    text-align: center;
+    font-size: 130%;
+    margin: 0% 10% 0% 10%;
+}
+
+.header_navi_list {
+    padding: 0% 0% 0% 0%;
+}
+
+.header_navi_list li {
+    display: inline-block;
+    /* リストを横並びにする */
+    margin: 10px 20px;
+    /* 上下は10ox 左右は20pxの余白 */
+    border-bottom: gray 1px solid;
+}
+
+.container {
+    height: 600px;
+    overflow: hidden;
+    /* containerからはみ出た画像を隠す */
+    position: relative;
+    /* 相対配置 */
+    margin: 30px 80px 70px 130px;
+    /* ロゴの通り道を作る */
+}
+
+.top_images {
+    opacity: 0;
+    /* 要素の透明度を0(完全に透明)にする */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* containerに合わせて縦横比を維持しながらリサイズし、全体が見えるようにはめ込む。 */
+    position: absolute;
+    /* 絶対配置 */
+    left: 0;
+    top: 0;
+    /* -webkit-animationとは、cssでアニメーションを使うためのプロパティー */
+    animation-name: slide;
+    /* アニメーションの名前をslideにする */
+    animation-duration: 15s;
+    /* アニメーションの長さを15秒に設定 */
+    animation-timing-function: ease;
+    /* 開始と完了を滑らかにする */
+    animation-delay: 0;
+    /* アニメーションの開始までの時間を0にする(すぐ始まる) */
+    animation-iteration-count: infinite;
+    /* スライドショーを無限に再生を繰り返す */
+    animation-direction: normal;
+    /* 普通方向のサイクルでスライドショーを繰り返す */
+}
+
+.top_images:nth-of-type(2) {
+    /* .top_imagesクラスの2つ目の要素に指示をだす */
+    animation-delay: 5s;
+}
+
+.top_images:nth-of-type(3) {
+    /* .top_imagesクラスの3つ目の要素に指示をだす */
+    animation-delay: 10s;
+}
+
+@keyframes slide {
+
+    /* アニメーションの開始から終了までどのようなアニメーションをするのか指定する */
+    0% {
+        opacity: 0;
+        /* 開始時は完全に透明 */
+    }
+
+    30% {
+        /* 30%の時透明じゃなくなる */
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+        z-index: 9;
+        /* 前面に出す */
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+
+.about {
+    margin: 50px 80px 50px 130px;
+    font-family: 'Noto Serif JP', serif;
+}
+
+
+
+.contents {
+    background-color: #f2f2f2;
+    display: inline-block;
+    justify-content: space-between;
+    margin: 20px 80px 20px 130px;
+    /* ロゴの通り道を作る */
+}
+
+.coffee_beans {
+    width: 30%;
+    margin: 2% 5% 2% 15%
+}
+
+.shop {
+    width: 30%;
+    margin: 2% 5% 2% 10%
+}
+
+.information {
+    text-align: center;
+}
+
+.box {
+    overflow-y: scroll;
+    /* スクロールできるようにする */
+    max-height: 450px;
+    margin-left: 190px;
+    /* ロゴの通り道を作る */
+    margin-right: 18%;
+    /* スクロールバーが画面いっぱいにあると、邪魔なので右にスペースを作る。その際、%表示にすることで、画面を縮小しても崩れにくくする */
+    margin-bottom: 30px;
+    border-top: solid 1px;
+}
+
+footer {
+    height: auto;
+    background-image: url("../images/international-klain-blue.jpg");
+    /* 背景画像を追加 */
+    background-size: cover;
+    background-repeat: repeat-x;
+    /* 横方向に繰り返す */
+    text-align: center;
+    /* 画像を中央に配置 */
+}
+
+.footer_img {
+    width: 150px;
+    object-fit: contain;
+}
+
+.footer_navi {
+    text-align: center;
+    /* 中心に配置 */
+    font-size: 130%;
+    margin: 0;
+}
+
+.footer_navi_list {
+    padding: 0% 0% 0% 0%;
+    margin: 0;
+}
+
+.footer_navi_list li {
+    color: rgb(129, 167, 0);
+    /* ロゴの字の色と同じ色をしている */
+    display: inline-block;
+    /* リストを横並びにする */
+    margin: 0px 10px 5px 10px;
+    border-bottom: gray 1px solid;
+    font-size: 1rem;
+}
+
+.footer_link {
+    /* アンカータグの装飾がヘッダーと違うので、クラスを作り指定した */
+    color: rgb(129, 167, 0);
+
+}
+
+/*  ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーここからmenu.htmlの内容ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー*/
+
+
+.menu_contents {
+    /* ロゴの通るスペースを作る */
+    margin-left: 250px;
+    margin-right: 100px;
+}
+
+.menu_contents h1 {
+    font-family: 'Noto Serif JP', serif;
+    text-align: center;
+}
+
+.menu_contents h2 {
+    font-family: 'Noto Serif JP', serif;
+}
+
+.menu_image {
+    width: 100px;
+}
+
+.menu_name {
+    width: 300px;
+    height: 30px;
+    border-bottom: gray 1px solid;
+    /* 商品名の下にライン */
+    text-align: center;
+}
+
+.menu_blank {
+    width: 100px;
+    height: 70px;
+}
+
+.menu_description {
+    height: 100px;
+    text-align: center;
+}
+
+.menu_price {
+    height: 20px;
+}
+
+.between_menu {
+    height: 3px;
+    margin-right: 30%;
+
+}
+
+/* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーここからshop.htmlの内容ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+
+.shop_contents {
+    margin-left: 150px;
+    margin-right: 140px;
+}
+
+.shop_contents h1 {
+    font-family: 'Noto Serif JP', serif;
+    text-align: center;
+}
